@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 浮生六记</title>
+  <title>重新评估通过Pod私有库引入React-Native | 浮生六记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大前端工作者。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="浮生六记">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Pod 私有库引入 RN原因最大的原因是，原生开发不用考虑 RN 中 js 代码变更。具体如下 由于整个工程通过 git 的 submodule 管理，结构如下  RN -– iOS |_____ Android 对应有三个 git 库RN、iOS、Android，也即至少有三个分支同时存在。 在同时有多个项目进行时，如果 RN 和 iOS 都有有依赖库更新则， 当 iOS 切换分支前，需要先将R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重新评估通过Pod私有库引入React-Native">
+<meta property="og:url" content="http://yoursite.com/2020/03/05/%E9%87%8D%E6%96%B0%E8%AF%84%E4%BC%B0%E9%80%9A%E8%BF%87Pod%E7%A7%81%E6%9C%89%E5%BA%93%E5%BC%95%E5%85%A5React-Native/index.html">
 <meta property="og:site_name" content="浮生六记">
-<meta property="og:description" content="大前端工作者。">
+<meta property="og:description" content="Pod 私有库引入 RN原因最大的原因是，原生开发不用考虑 RN 中 js 代码变更。具体如下 由于整个工程通过 git 的 submodule 管理，结构如下  RN -– iOS |_____ Android 对应有三个 git 库RN、iOS、Android，也即至少有三个分支同时存在。 在同时有多个项目进行时，如果 RN 和 iOS 都有有依赖库更新则， 当 iOS 切换分支前，需要先将R">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-05T03:58:57.000Z">
+<meta property="article:modified_time" content="2020-03-05T04:05:23.659Z">
 <meta property="article:author" content="Eaffy">
 <meta property="article:tag" content="iOS">
-<meta property="article:tag" content="React">
 <meta property="article:tag" content="React-Native">
-<meta property="article:tag" content="Android">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="Swift">
-<meta property="article:tag" content="Objective-C">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="浮生六记" type="application/atom+xml">
@@ -159,36 +156,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-重新评估通过Pod私有库引入React-Native" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/05/%E9%87%8D%E6%96%B0%E8%AF%84%E4%BC%B0%E9%80%9A%E8%BF%87Pod%E7%A7%81%E6%9C%89%E5%BA%93%E5%BC%95%E5%85%A5React-Native/" class="archive-article-date">
-  	<time datetime="2020-03-05T03:58:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/05/%E9%87%8D%E6%96%B0%E8%AF%84%E4%BC%B0%E9%80%9A%E8%BF%87Pod%E7%A7%81%E6%9C%89%E5%BA%93%E5%BC%95%E5%85%A5React-Native/">重新评估通过Pod私有库引入React-Native</a>
+    <h1 class="article-title" itemprop="name">
+      重新评估通过Pod私有库引入React-Native
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/03/05/%E9%87%8D%E6%96%B0%E8%AF%84%E4%BC%B0%E9%80%9A%E8%BF%87Pod%E7%A7%81%E6%9C%89%E5%BA%93%E5%BC%95%E5%85%A5React-Native/" class="archive-article-date">
+  	<time datetime="2020-03-05T03:58:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Pod-私有库引入-RN原因"><a href="#Pod-私有库引入-RN原因" class="headerlink" title="Pod 私有库引入 RN原因"></a>Pod 私有库引入 RN原因</h3><p>最大的原因是，原生开发不用考虑 RN 中 js 代码变更。具体如下</p>
+<p>由于整个工程通过 git 的 submodule 管理，结构如下</p>
+<p> RN -– iOS<br> |_____ Android</p>
+<p>对应有三个 git 库RN、iOS、Android，也即至少有三个分支同时存在。</p>
+<p>在同时有多个项目进行时，如果 RN 和 iOS 都有有依赖库更新则，</p>
+<p>当 iOS 切换分支前，需要先将RN 的分支也切换到对应的分支并执行npm install,</p>
+<p>才能跟原来一样切换分支并 pod install。</p>
+<p>如果使用 Pod 私有库，则需要 RN 在更新依赖库时，生成对应的pod 库，在iOS 对应分支添加对应的 pod 库即可。</p>
+<p>这样，iOS 开发不用考虑 RN 分支的变更，跟原来开发流程一致。但是 RN 开发人员增加了 pod 库工作量，</p>
+<p>实际上属于 iOS 开发人员擅长领域，且后续 RN 更新，还需要在 pod 私有库添加对应版本。</p>
+<h3 id="重新评估原因"><a href="#重新评估原因" class="headerlink" title="重新评估原因"></a>重新评估原因</h3><p>0.60版本后的 RN 统一采用本地 pod 库引入，将所有模块拆出，导致一个完整 RN，有20多个 pod 库，虽然这20多个 pod 库</p>
+<p>的 git 地址一致，但是安装时貌似会重新下载，实测，光安装RN 依赖耗时就超过了30分钟。</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p><strong>优点：</strong></p>
+<p>iOS 开发不用考虑 RN 分支的变更<br><strong>缺点：</strong></p>
+<p>RN 开发人员增加了 pod 库工作量<br>引用同一 git 地址的不同 pod 库安装时耗费时间巨大</p>
+<h3 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h3><p>纵观整个开发工程，通过 Pod 私有库引入 RN，相较于正常流程(pod 本地库引入 RN)，增加了添加私有库的过程，</p>
+<p>省去了 iOS 开发人员切换 RN 分支和npm install，相当于 RN 开发者多做了一部分 iOS 开发人员的工作，</p>
+<p>消除了 iOS 开发人员在引入 RN 后多余的那部分工作。如果私有库这部分工作交给 iOS 开发者做，则需要增加额外的沟通成本，</p>
+<p>不如使用pod 本地库引入 RN</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p><strong>RN 三方库是否采用私有库引入取决于开发人员具备的开发能力，React-Native 本身的引入建议使用官方的本地库引入，不使用私有库。</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,57 +240,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/05/%E9%87%8D%E6%96%B0%E8%AF%84%E4%BC%B0%E9%80%9A%E8%BF%87Pod%E7%A7%81%E6%9C%89%E5%BA%93%E5%BC%95%E5%85%A5React-Native/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/22/AppleScript%E5%88%9D%E6%8E%A2/" class="archive-article-date">
-  	<time datetime="2020-02-22T06:27:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/22/AppleScript%E5%88%9D%E6%8E%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AppleScript初探</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/22/AppleScript%E5%88%9D%E6%8E%A2/">AppleScript初探</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">automatic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -277,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
