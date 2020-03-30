@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>AppleScript初探 | 浮生六记</title>
+  <title>Podfile中涉及的Ruby基本语法 | 浮生六记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景Apple Script 是什么？AppleScript 是苹果公司的脚本语言，用于自动执行 Macintosh 操作系统及其许多应用程序操作的语言。内置于 macOS 系统中，通过脚本编辑器 应用来编写和运行。 解决步骤其中包含的基本知识">
+  <meta name="description" content="背景最近在适配 XCode11.3时经常需要改Podfile，但是仅仅停留在依样画葫芦的阶段，只知道形式，不知道为什么要这么写，于是简单研究一下 Podfile 涉及的语法。 Podfile 的本质是什么Podfile 其实是简写的 ruby 代码，Cocoapods从Podfile读取数据，然后使用 eval 直接将文件中的内容当做 Ruby 代码来执行，安装对应的三方库和一些配置的操作 Pod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AppleScript初探">
-<meta property="og:url" content="http://yoursite.com/2020/02/22/AppleScript%E5%88%9D%E6%8E%A2/index.html">
+<meta property="og:title" content="Podfile中涉及的Ruby基本语法">
+<meta property="og:url" content="http://yoursite.com/2020/03/30/Podfile%E4%B8%AD%E6%B6%89%E5%8F%8A%E7%9A%84Ruby%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="浮生六记">
-<meta property="og:description" content="背景Apple Script 是什么？AppleScript 是苹果公司的脚本语言，用于自动执行 Macintosh 操作系统及其许多应用程序操作的语言。内置于 macOS 系统中，通过脚本编辑器 应用来编写和运行。 解决步骤其中包含的基本知识">
+<meta property="og:description" content="背景最近在适配 XCode11.3时经常需要改Podfile，但是仅仅停留在依样画葫芦的阶段，只知道形式，不知道为什么要这么写，于是简单研究一下 Podfile 涉及的语法。 Podfile 的本质是什么Podfile 其实是简写的 ruby 代码，Cocoapods从Podfile读取数据，然后使用 eval 直接将文件中的内容当做 Ruby 代码来执行，安装对应的三方库和一些配置的操作 Pod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-22T06:27:53.000Z">
-<meta property="article:modified_time" content="2020-02-22T06:56:31.077Z">
+<meta property="article:published_time" content="2020-03-30T14:01:29.000Z">
+<meta property="article:modified_time" content="2020-03-30T15:23:30.824Z">
 <meta property="article:author" content="Eaffy">
-<meta property="article:tag" content="automatic">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Ruby">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="浮生六记" type="application/atom+xml">
@@ -155,28 +156,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-AppleScript初探" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Podfile中涉及的Ruby基本语法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      AppleScript初探
+      Podfile中涉及的Ruby基本语法
     </h1>
   
 
         
-        <a href="/2020/02/22/AppleScript%E5%88%9D%E6%8E%A2/" class="archive-article-date">
-  	<time datetime="2020-02-22T06:27:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
+        <a href="/2020/03/30/Podfile%E4%B8%AD%E6%B6%89%E5%8F%8A%E7%9A%84Ruby%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-03-30T14:01:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="Apple-Script-是什么？"><a href="#Apple-Script-是什么？" class="headerlink" title="Apple Script 是什么？"></a>Apple Script 是什么？</h3><p>AppleScript 是苹果公司的脚本语言，用于自动执行 Macintosh 操作系统及其许多应用程序操作的语言。内置于 macOS 系统中，通过脚本编辑器 应用来编写和运行。</p>
-<h2 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h2><h2 id="其中包含的基本知识"><a href="#其中包含的基本知识" class="headerlink" title="其中包含的基本知识"></a>其中包含的基本知识</h2>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>最近在适配 XCode11.3时经常需要改Podfile，但是仅仅停留在依样画葫芦的阶段，只知道形式，不知道为什么要这么写，于是简单研究一下 Podfile 涉及的语法。</p>
+<h3 id="Podfile-的本质是什么"><a href="#Podfile-的本质是什么" class="headerlink" title="Podfile 的本质是什么"></a>Podfile 的本质是什么</h3><p>Podfile 其实是简写的 ruby 代码，Cocoapods从Podfile读取数据，然后使用 eval 直接将文件中的内容当做 Ruby 代码来执行，安装对应的三方库和一些配置的操作</p>
+<h3 id="Podfile"><a href="#Podfile" class="headerlink" title="Podfile"></a>Podfile</h3><p>在这用我们工程中的 Podfile 举例，解释一下具体内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">project &#39;jayanzi.xcodeproj&#39;</span><br><span class="line">platform :ios, &#39;9.3&#39;</span><br><span class="line">inhibit_all_warnings!</span><br><span class="line"></span><br><span class="line">post_install do |installer|</span><br><span class="line">    # 需要指定编译版本的第三方的名称</span><br><span class="line">    myTargets &#x3D; [&#39;RxASDataSources&#39;]</span><br><span class="line">    </span><br><span class="line">    installer.pods_project.targets.each do |target|</span><br><span class="line">        if myTargets.include? target.name</span><br><span class="line">            target.build_configurations.each do |config|</span><br><span class="line">                config.build_settings[&#39;SWIFT_VERSION&#39;] &#x3D; &#39;4.0&#39;</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"># Pod 私有库</span><br><span class="line">source &#39;https:&#x2F;&#x2F;github.com&#x2F;Eaffy&#x2F;react-native-specs.git&#39;</span><br><span class="line"></span><br><span class="line">target ‘jayanzi&#39; do</span><br><span class="line">    # Comment the next line if you&#39;re not using Swift and don&#39;t want to use dynamic frameworks</span><br><span class="line">    use_frameworks!</span><br><span class="line"> </span><br><span class="line">    pod &#39;Then&#39;</span><br><span class="line">    pod &#39;UMCCommon&#39;, &#39;~&gt; 2.1.1&#39;</span><br><span class="line">    pod &#39;UMCSecurityPlugins&#39;</span><br><span class="line">    pod &#39;UMCAnalytics&#39;</span><br><span class="line">    pod &#39;RNReanimated&#39;, :git &#x3D;&gt; &#39;https:&#x2F;&#x2F;github.com&#x2F;software-mansion&#x2F;react-native-reanimated.git&#39;</span><br><span class="line"></span><br><span class="line">    target &#39;jayanziTests&#39; do</span><br><span class="line">        inherit! :search_paths</span><br><span class="line">        # Pods for testing</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    target ‘jayanziUITests&#39; do</span><br><span class="line">        inherit! :search_paths</span><br><span class="line">        # Pods for testing</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h3 id="ruby-语法"><a href="#ruby-语法" class="headerlink" title="ruby 语法"></a>ruby 语法</h3><p>在开始解析前，先介绍几个必备的 ruby 语法</p>
+<ol>
+<li>#后表示注释</li>
+<li>数据类型<br><code>Number: 239</code><br><code>String: &quot;apple&quot;</code><br><code>Bool: true  false</code><br><code>Symbols: :name #(包含前边的:)可以简单理解成不变的字符串</code><br><code>Hash: {:name =&gt; “JaYanZi”} #字典</code><br><code>Array: [1, 2, 3] #元素可以不同类型 [1, “two”, :three, {:name =&gt; 4 }]</code></li>
+<li>赋值不需要类型声明<br><code>name = “JaYanZi”</code></li>
+<li>命名规范<br>常量： 全部大写 <code>CONST_VAR</code><br>变量： 小写字母 <code>apple</code><br><code>class  module</code>: 首字母大写 驼峰<br>方法名：小写字母开头，可以移? = !结尾</li>
+<li>变量<br>类变量 <code>@@name</code><br>实例变量 <code>@name</code><br>普通变量 <code>name</code><br>全局变量 <code>$name</code>  </li>
+<li>字符串插值<br><code>“hi, #{name}”</code></li>
+<li>条件语句  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if conditional  [then]</span><br><span class="line">   code</span><br><span class="line">elsif conditional [then]# 比 elseif 少个 e</span><br><span class="line">   code </span><br><span class="line">else</span><br><span class="line">   code</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">case expr0</span><br><span class="line">when expr1, expr2 [then]</span><br><span class="line">    code</span><br><span class="line">when expr3 [then]</span><br><span class="line">    code</span><br><span class="line">else</span><br><span class="line">    code</span><br><span class="line">end</span><br></pre></td></tr></table></figure></li>
+<li>方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Apple</span><br><span class="line"># 类方法</span><br><span class="line">    def Apple.name</span><br><span class="line">        “apple”</span><br><span class="line">    end</span><br><span class="line"># 实例方法</span><br><span class="line">    def color</span><br><span class="line">        “red”</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></li>
+<li><strong>ruby 的简写</strong>  </li>
+</ol>
+<p><strong>i. 方法调用的最外层可以省略<br>ii. 函数的最后一行代码默认是返回值<br>iii. Hash最外层的{}可以省略(如果是最后一个参数，除去 block)</strong><br>iV. block 简写<br>Apples.all.map { |apple| apple.name }<br>等价于<br>Apples.all.map{ &amp;:name }<br>10. 双冒号:: 表示 class 的常量或命名空间  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Fruit</span><br><span class="line">    class Apple</span><br><span class="line">        COLOR &#x3D; ‘red’</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">Apple::COLOR</span><br><span class="line">Fruit::Apple</span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">11. do end 基本上等于&#123;&#125; </span><br><span class="line">### 示例代码解析</span><br><span class="line">#### project</span><br><span class="line">&#96;project &#39;jayanzi.xcodeproj&#39;&#96;  </span><br><span class="line">Ruby 中方法调用可以省略小括号,这行代码实际上是一个函数调用，相当于</span><br><span class="line">&#96;project(&#39;jayanzi.xcodeproj&#39;)&#96;  </span><br><span class="line">翻查源码，project 这个函数定义在 dsl.rb 中。</span><br></pre></td></tr></table></figure>
+<p>def project(path, build_configurations = {})<br>    current_target_definition.user_project_path = path<br>    current_target_definition.build_configurations = build_configurations<br>end</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">同样的  </span><br><span class="line">&#96;platform :ios, &#39;9.3&#39;&#96;调用&#96;platform(name, target &#x3D; nil)&#96;,:ios 是一个 Symbols 类型的参数  </span><br><span class="line">&#96;inhibit_all_warnings!&#96;调用&#96;inhibit_all_warnings!&#96;,其中!是函数名的一部分，调用省去了小括号  </span><br><span class="line">&#96;source &#39;https:&#x2F;&#x2F;github.com&#x2F;Eaffy&#x2F;react-native-specs.git&#39;&#96;调用&#96;source(source)&#96;,source 类型为[String]</span><br><span class="line">#### post_install</span><br></pre></td></tr></table></figure>
+<p>post_install do |installer|<br>    # 需要指定编译版本的第三方的名称<br>    myTargets = [‘RxASDataSources’]</p>
+<pre><code>installer.pods_project.targets.each do |target|
+    if myTargets.include? target.name
+        target.build_configurations.each do |config|
+            config.build_settings[&apos;SWIFT_VERSION&apos;] = &apos;4.0&apos;
+        end
+    end
+end</code></pre><p>end</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同样是调用了函数</span><br></pre></td></tr></table></figure>
+<p>def post_install(&amp;block)<br>    raise Informative, ‘Specifying multiple <code>post_install</code> hooks is unsupported.’ if @post_install_callback<br>    @post_install_callback = block<br>end</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">该函数允许你用代码修改生成 Xcode，block 会回调一个Pod::Installer，也就是使用中的installer。</span><br><span class="line">#### target</span><br></pre></td></tr></table></figure>
+<p>target ‘jayanzi’ do<br>    …<br>end</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了&#96;def target(name, options &#x3D; nil)&#96;，name的值为&#39;jayanzi&#39;，option为默认值，do...end 相当于&#123;&#125;,do...end 中间的为 block，该函数通过block_given?获得 block，执行其中的代码。</span><br><span class="line">#### pod</span><br></pre></td></tr></table></figure>
+<p>pod ‘Then’<br>pod ‘UMCCommon’, ‘~&gt; 2.1.1’<br>pod ‘RNReanimated’, :git =&gt; ‘<a href="https://github.com/software-mansion/react-native-reanimated.git&#39;" target="_blank" rel="noopener">https://github.com/software-mansion/react-native-reanimated.git&#39;</a></p>
+<p>```<br>调用<code>def pod(name = nil, *requirements)</code>,第一个参数是依赖的名，Ruby 中，假如最后一个参数，名字前面带星号 *，就表示可以传递不定参数。个数也可以不定。<br><code>pod &#39;RNReanimated&#39;, :git =&gt; &#39;https://github.com/software-mansion/react-native-reanimated.git&#39;</code>第二个参数实际上是一个 hash，由于是最后一个参数，可以省略{},完整的应该为<br><code>pod(&#39;RNReanimated&#39;, {:git =&gt; &#39;https://github.com/software-mansion/react-native-reanimated.git&#39;})</code></p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.imooc.com/learn/765" target="_blank" rel="noopener">Ruby语言快速入门</a><br><a href="https://zhuanlan.zhihu.com/p/45513672" target="_blank" rel="noopener">Podfile、DSL 和 Ruby 语法</a><br><a href="https://draveness.me/cocoapods" target="_blank" rel="noopener">CocoaPods 都做了什么？</a><br><a href="https://www.runoob.com/ruby/ruby-tutorial.html" target="_blank" rel="noopener">Ruby 教程</a></p>
+
       
 
       
@@ -210,7 +247,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">automatic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ruby</a>
         		</li>
       		
 		</ul>
@@ -266,7 +307,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/22/AppleScript%E5%88%9D%E6%8E%A2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/30/Podfile%E4%B8%AD%E6%B6%89%E5%8F%8A%E7%9A%84Ruby%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,15 +321,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/05/%E9%87%8D%E6%96%B0%E8%AF%84%E4%BC%B0%E9%80%9A%E8%BF%87Pod%E7%A7%81%E6%9C%89%E5%BA%93%E5%BC%95%E5%85%A5React-Native/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          重新评估通过Pod私有库引入React-Native
-        
-      </div>
-    </a>
   
+    <a href="/2020/03/10/Flutter-%E8%B0%83%E7%A0%94/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Flutter 调研</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
