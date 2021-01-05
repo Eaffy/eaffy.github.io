@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Flutter 调研 | 浮生六记</title>
+  <title>Tag: 生活 | 浮生六记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景当前我们公司客户端开发，包含三种常用技术，iOS native、Android native、React-Native，在长时间的使用中发现，React-Native的 UI 统一性不够，深度开发严重依赖native，性能需要做大量的优化工作，所以考察 Flutter 当做备选替换方案。 Flutter 是什么Flutter 是 Google推出并开源的移动应用开发框架，主打跨平台、高保真、高">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Flutter 调研">
-<meta property="og:url" content="http://yoursite.com/2020/03/10/Flutter-%E8%B0%83%E7%A0%94/index.html">
+  <meta name="description" content="大前端工作者。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="浮生六记">
+<meta property="og:url" content="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/index.html">
 <meta property="og:site_name" content="浮生六记">
-<meta property="og:description" content="背景当前我们公司客户端开发，包含三种常用技术，iOS native、Android native、React-Native，在长时间的使用中发现，React-Native的 UI 统一性不够，深度开发严重依赖native，性能需要做大量的优化工作，所以考察 Flutter 当做备选替换方案。 Flutter 是什么Flutter 是 Google推出并开源的移动应用开发框架，主打跨平台、高保真、高">
+<meta property="og:description" content="大前端工作者。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-10T06:31:35.000Z">
-<meta property="article:modified_time" content="2020-03-10T06:53:54.565Z">
 <meta property="article:author" content="Eaffy">
-<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="React-Native">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Swift">
+<meta property="article:tag" content="Objective-C">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="浮生六记" type="application/atom+xml">
@@ -155,237 +159,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Flutter-调研" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Flutter 调研
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/01/05/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2021-01-05T02:20:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/01/05/2020%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">2020年度总结</a>
     </h1>
   
 
-        
-        <a href="/2020/03/10/Flutter-%E8%B0%83%E7%A0%94/" class="archive-article-date">
-  	<time datetime="2020-03-10T06:31:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>当前我们公司客户端开发，包含三种常用技术，iOS native、Android native、React-Native，在长时间的使用中发现，React-Native的 UI 统一性不够，深度开发严重依赖native，性能需要做大量的优化工作，所以考察 Flutter 当做备选替换方案。</p>
-<h2 id="Flutter-是什么"><a href="#Flutter-是什么" class="headerlink" title="Flutter 是什么"></a>Flutter 是什么</h2><p>Flutter 是 Google推出并开源的移动应用开发框架，主打跨平台、高保真、高性能。开发者可以通过 Dart语言开发 App，一套代码同时运行在 iOS 和 Android平台。 Flutter提供了丰富的组件、接口，开发者可以很快地为 Flutter添加 native扩展。同时 Flutter还使用 Native引擎渲染视图。</p>
-<h3 id="跨平台自绘引擎"><a href="#跨平台自绘引擎" class="headerlink" title="跨平台自绘引擎"></a>跨平台自绘引擎</h3><p>Flutter既不使用WebView，也不使用操作系统的原生控件，而是使用Skia作为其2D渲染引擎。</p>
-<blockquote>
-<p>Skia是Google的一个2D图形处理函数库，包含字型、坐标转换，以及点阵图都有高效能且简洁的表现，Skia是跨平台的，并提供了非常友好的API，目前Google Chrome浏览器和Android均采用Skia作为其绘图引擎。</p>
-</blockquote>
-<h3 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h3><ol>
-<li>Flutter APP采用Dart语言开发。Dart在 JIT 模式下，速度与 JavaScript基本持平。但是 Dart支持 AOT，当以 AOT模式运行时，JavaScript便远远追不上了</li>
-<li>Flutter使用自己的渲染引擎来绘制UI，布局数据等由Dart语言直接控制，所以在布局过程中不需要像RN那样要在JavaScript和Native之间通信<blockquote>
-<p>JIT（Just In Time） 动态编译：解释执行，边翻译边执行。</p>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p>AOT（Ahead Of Time）静态编译：程序在执行前全部被翻译为机器码</p>
-</blockquote>
-<h3 id="采用Dart语言开发"><a href="#采用Dart语言开发" class="headerlink" title="采用Dart语言开发"></a>采用Dart语言开发</h3><h4 id="开发效率高"><a href="#开发效率高" class="headerlink" title="开发效率高"></a>开发效率高</h4><p>Flutter在开发阶段采用，采用JIT模式，这样就避免了每次改动都要进行编译，极大的节省了开发时间。</p>
-<p>在发布时可以通过AOT静态编译生成代码，不需要解释执行，性能高。</p>
-<h4 id="高性能-1"><a href="#高性能-1" class="headerlink" title="高性能"></a>高性能</h4><h4 id="类型安全"><a href="#类型安全" class="headerlink" title="类型安全"></a>类型安全</h4><p>由于Dart是类型安全的语言，支持静态类型检测，所以可以在编译前发现一些类型的错误，并排除潜在问题</p>
-<h2 id="调研问题"><a href="#调研问题" class="headerlink" title="调研问题"></a>调研问题</h2><h3 id="能否绝大部分脱离原生开发"><a href="#能否绝大部分脱离原生开发" class="headerlink" title="能否绝大部分脱离原生开发"></a>能否绝大部分脱离原生开发</h3><blockquote>
-<p>在 React-Native 深入开发的工程中我们发现，其实还是需要大量的原生开发人员配合，或者开发者本身具有原生开发经验，如果Flutter 开发需要过多的原生开发，则没有必要采用。因为在高速迭代的过程中，如果需要原生开发介入，沟通成本过高，而如果开发人员本身具有原生开发经验，则招聘成本会比较高。</p>
-</blockquote>
-<p>Flutter  通过引入和使用Skia 渲染 UI，比 RN 的跨平台更彻底一些，但是如果涉及其它系统能力调用，依然要涉及原生开发。初步评估，还是需要不少的原生开发任务，比 React-Native 少一些，但是也<strong>不能绝大部分脱离原生开发</strong>。</p>
-<h3 id="性能是否媲美原生"><a href="#性能是否媲美原生" class="headerlink" title="性能是否媲美原生"></a>性能是否媲美原生</h3><blockquote>
-<p>目前 React-Native 的性能基本接近原生，Flutter 是否能达到同样性能。</p>
-</blockquote>
-<p>Flutter 使用 Skia 渲染 UI，而且代码通过静态编译生成，在执行前不需要解释，性能要比 React-Native 优秀，应该基本等同于 native 代码，而且，咸鱼团队验证过，部分场景，甚至要优于 native。<strong>性能是很完美的</strong></p>
-<h2 id="开发成本"><a href="#开发成本" class="headerlink" title="开发成本"></a>开发成本</h2><h3 id="学习成本"><a href="#学习成本" class="headerlink" title="学习成本"></a>学习成本</h3><p>开发语言使用 dart，dart 借鉴了不少语言的特性，有很多地方跟 JavaScript 很像，基本使用的入门门槛不高。开发的IDE 官方推荐 Android Studio 或者VS Code。学习成本与 React-Native 基本一致。</p>
-<h3 id="迁移成本"><a href="#迁移成本" class="headerlink" title="迁移成本"></a>迁移成本</h3><p>暂时不考虑</p>
-<h2 id="是否支持热更新"><a href="#是否支持热更新" class="headerlink" title="是否支持热更新"></a>是否支持热更新</h2><p><strong><del>不支持热更新</del></strong></p>
-<p>由于 Flutter 在发布时使用的时 AOT 的模式生成机器码，与native 一样，所以不支持热更新。官方解释了不支持的几个原因。总结起来，应该是如果要实现热更新，很可能需要废除 AOT 这个模式，这就让 Flutter 跟 React-Native 差不多，性能会变慢。</p>
-<h2 id="配套社区是否完善"><a href="#配套社区是否完善" class="headerlink" title="配套社区是否完善"></a>配套社区是否完善</h2><p>Flutter 团队近两年的更新频繁，社区也再不断壮大，基本使用应该是没有问题的，但是跟强大的前端开发社区比，还是要差一些的。</p>
-<h2 id="与-React-Native-对比"><a href="#与-React-Native-对比" class="headerlink" title="与 React-Native 对比"></a>与 React-Native 对比</h2><table>
-<thead>
-<tr>
-<th align="center">对比</th>
-<th align="center">Flutter</th>
-<th align="center">React-Native</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">开发成本</td>
-<td align="center"></td>
-<td align="center">√</td>
-</tr>
-<tr>
-<td align="center">社区完善</td>
-<td align="center"></td>
-<td align="center">√</td>
-</tr>
-<tr>
-<td align="center">App 性能</td>
-<td align="center">√</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">UI 一致性</td>
-<td align="center">√</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Flutter 目前来看，性能是最好的，UI 的一致性好，社区也已经基本完善，但是与 React-Native 一样，深度开发还是离不开 native 开发人员。可以看成是跨平台的原生开发，如果不追求热更新，是个很好的选择。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/10/Flutter-%E8%B0%83%E7%A0%94/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/30/Podfile%E4%B8%AD%E6%B6%89%E5%8F%8A%E7%9A%84Ruby%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Podfile中涉及的Ruby基本语法
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/03/05/%E9%87%8D%E6%96%B0%E8%AF%84%E4%BC%B0%E9%80%9A%E8%BF%87Pod%E7%A7%81%E6%9C%89%E5%BA%93%E5%BC%95%E5%85%A5React-Native/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">重新评估通过Pod私有库引入React-Native</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -408,9 +235,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
